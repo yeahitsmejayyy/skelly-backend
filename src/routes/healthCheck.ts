@@ -15,10 +15,10 @@ export const healthRouter = router({
         }).format(now);
 
         return {
-            app: "skelly-backend",
+            app: "skelly backend",
             status: "ok",
             timestamp: formattedTimestamp,
-            message: "This means your this app is connected to your backend via tRPC"
+            message: "If you see this, it means your backend is working."
         };
     }),
 });

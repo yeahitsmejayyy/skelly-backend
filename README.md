@@ -1,7 +1,7 @@
 ![Project Banner](./image.png)
 
 
-# 💀 @skelly/backend
+# Skelly Admin
 
 > A tiny, opinionated backend skeleton for product-first builders.
 
