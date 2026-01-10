@@ -1,6 +1,5 @@
 ![Skelly Backend Banner](./image.png)
 
-
 # skelly-backend
 
 > A tiny, opinionated backend skeleton for product-first builders.
