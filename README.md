@@ -1,4 +1,4 @@
-![Project Banner](./image.png)
+![Skelly Backend Banner](./image.png)
 
 
 # skelly-backend
