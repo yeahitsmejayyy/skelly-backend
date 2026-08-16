@@ -2,6 +2,18 @@
 
 # skelly-backend
 
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-FF6100.svg)](./LICENSE)
+[![Bun](https://img.shields.io/badge/Bun-1.x-FF6100?logo=bun&logoColor=white)](https://bun.sh)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-FF6100?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![tRPC](https://img.shields.io/badge/tRPC-11-FF6100?logo=trpc&logoColor=white)](https://trpc.io)
+[![Zod](https://img.shields.io/badge/Zod-4-FF6100?logo=zod&logoColor=white)](https://zod.dev)
+[![SQLite](https://img.shields.io/badge/SQLite-bun%3Asqlite-FF6100?logo=sqlite&logoColor=white)](https://bun.sh/docs/api/sqlite)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-FF6100.svg)](./SECURITY.md)
+
+</div>
+
 > A tiny, opinionated backend skeleton for product-first builders.
 
 Skelly Backend exists to answer one question quickly:
