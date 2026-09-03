@@ -137,8 +137,8 @@ Rules:
 
 * No migrations
 * No rollbacks
-* Change schema → delete `skelly.db`
-* Restart server
+* Add a table → restart the server
+* Change or remove an existing table → delete `skelly.db`, then restart
 
 This friction forces you to:
 
