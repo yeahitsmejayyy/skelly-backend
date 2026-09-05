@@ -105,8 +105,11 @@ skelly-backend/
 │  ├─ appRouter.ts      # root tRPC router
 │  ├─ trpc.ts           # tRPC setup + context
 │  └─ server.ts         # Bun server entrypoint
+├─ scripts/
+│  └─ emit-types.ts     # emits the AppRouter contract for skelly-admin
 ├─ skelly.db            # local SQLite database (generated)
 ├─ package.json
+├─ tsconfig.types.json  # declaration emit used by `bun run types:emit`
 └─ README.md
 ```
 
@@ -226,5 +229,26 @@ Until then - this is enough.
 
 If this backend feels almost *too* small,
 that’s the correct feeling.
+
+---
+
+## The Contract
+
+skelly-admin never imports this repo's source. It imports one generated file: the
+`AppRouter` type, emitted from `src/appRouter.ts`.
+
+```bash
+bun run types:emit   # writes dist/types/appRouter.d.ts; also runs as part of `bun run build`
+```
+
+Over in skelly-admin, `bun run sync:types` copies that file in and commits it, so the admin
+typechecks and builds on its own.
+
+The emit fails on purpose if the contract leaks server types (`bun:sqlite`, `node:*`) or
+spills across files. That is why the tRPC context stays empty: routes import `db` from
+`src/db/client.ts` directly instead of reading it off `ctx`. Put request-scoped data in the
+context (a session, a user id), not runtime handles.
+
+---
 
 Happy building.

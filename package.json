@@ -5,8 +5,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "bun run src/server.ts",
-		"build": "bun build src/server.ts --outdir dist --target bun && cp src/db/schema.sql dist/schema.sql",
-		"start": "bun run dist/server.js"
+		"build": "bun build src/server.ts --outdir dist --target bun && cp src/db/schema.sql dist/schema.sql && bun run types:emit",
+		"start": "bun run dist/server.js",
+		"types:emit": "bun scripts/emit-types.ts"
 	},
 	"devDependencies": {
 		"@types/bun": "latest"
