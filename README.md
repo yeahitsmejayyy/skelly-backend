@@ -106,7 +106,7 @@ skelly-backend/
 │  ├─ trpc.ts           # tRPC setup + context
 │  └─ server.ts         # Bun server entrypoint
 ├─ scripts/
-│  └─ emit-types.ts     # emits the AppRouter contract for skelly-admin
+│  └─ emit-types.ts     # emits the AppRouter contract for skelly-portal
 ├─ skelly.db            # local SQLite database (generated)
 ├─ package.json
 ├─ tsconfig.types.json  # declaration emit used by `bun run types:emit`
@@ -194,7 +194,7 @@ CORS is explicitly enabled for:
 http://localhost:5173
 ```
 
-This is assumed to be your admin frontend during development.
+This is assumed to be your portal frontend during development.
 
 Change it when you care.
 
@@ -234,14 +234,14 @@ that’s the correct feeling.
 
 ## The Contract
 
-skelly-admin never imports this repo's source. It imports one generated file: the
+skelly-portal never imports this repo's source. It imports one generated file: the
 `AppRouter` type, emitted from `src/appRouter.ts`.
 
 ```bash
 bun run types:emit   # writes dist/types/appRouter.d.ts; also runs as part of `bun run build`
 ```
 
-Over in skelly-admin, `bun run sync:types` copies that file in and commits it, so the admin
+Over in skelly-portal, `bun run sync:types` copies that file in and commits it, so the portal
 typechecks and builds on its own.
 
 The emit fails on purpose if the contract leaks server types (`bun:sqlite`, `node:*`) or

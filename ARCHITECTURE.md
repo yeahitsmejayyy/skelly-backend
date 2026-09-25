@@ -45,10 +45,10 @@ you do not need to delete the database file. Changing an existing column does.
 `src/db/client.ts` directly rather than reading it off `ctx`.
 
 This looks like a missing feature. It is load-bearing. The context is part of the `AppRouter`
-type, and `skelly-admin` imports that type into a browser application. Put a `bun:sqlite`
+type, and `skelly-portal` imports that type into a browser application. Put a `bun:sqlite`
 `Database` in the context and its type leaks into the emitted contract, which then drags Bun's
 runtime types into a browser app's typecheck. That is exactly the coupling this template used
-to have, and removing it is what made the admin build standalone.
+to have, and removing it is what made the portal build standalone.
 
 Put request-scoped data in the context when you have some — a session, a user id. Never a
 runtime handle.
@@ -58,7 +58,7 @@ runtime handle.
 ## The contract
 
 `bun run types:emit` writes the `AppRouter` type to `dist/types/appRouter.d.ts`. It is the
-public surface of this repository: `skelly-admin` copies that one file in and types itself
+public surface of this repository: `skelly-portal` copies that one file in and types itself
 against it, rather than importing this source tree.
 
 The emit **refuses to write** a contract that references `bun:` or `node:` modules, or that

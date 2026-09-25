@@ -1,6 +1,6 @@
 // Emits the backend's public contract — the AppRouter type — as one declaration file that
-// skelly-admin copies in with `bun run sync:types`. Refuses to ship a contract that leaks
-// server runtime types or spills across files, because either one breaks a standalone admin.
+// skelly-portal copies in with `bun run sync:types`. Refuses to ship a contract that leaks
+// server runtime types or spills across files, because either one breaks a standalone portal.
 import { $ } from "bun";
 import { readFileSync } from "node:fs";
 
